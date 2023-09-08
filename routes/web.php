@@ -15,8 +15,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('explain', function () {
+    return view('explain');
+})->name('explain');  // この行を追加
+
+Route::get('user/login', function () {
+    return view('user/login');
+})->name('user.login');  // URL と名前を修正
+
+Route::get('company/login', function () {
+    return view('company/login');
+})->name('company.login');  // URL と名前を修正
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
