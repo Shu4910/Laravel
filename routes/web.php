@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CompanyAuthController;
+use App\Http\Controllers\CompanyController;
+
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,5 +45,15 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::prefix('company')->group(function() {
+    Route::get('/register', [CompanyAuthController::class, 'showRegistrationForm'])->name('company.register');
+    Route::post('/register', [CompanyAuthController::class, 'register'])->name('company.register.submit');
+    Route::get('/login', [CompanyAuthController::class, 'showLoginForm'])->name('company.login');
+    Route::post('/login', [CompanyAuthController::class, 'login'])->name('company.login.submit');
+    Route::get('/dashboard', [CompanyController::class, 'index'])->name('company.dashboard')->middleware('auth:company');
+});
+
+
 
 require __DIR__.'/auth.php';
