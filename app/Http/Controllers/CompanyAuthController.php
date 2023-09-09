@@ -18,7 +18,7 @@ class CompanyAuthController extends Controller
         // Validation...
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:companies'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:facilites'],
             'password' => ['required', 'string', 'confirmed'],
         ]);
 

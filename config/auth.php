@@ -49,7 +49,7 @@ return [
     
         'company' => [
             'driver' => 'session',
-            'provider' => 'companies',
+            'provider' => 'facilites',
         ],
     ],
 
@@ -76,7 +76,7 @@ return [
             'model' => App\Models\User::class,
         ],
     
-        'companies' => [
+        'facilites' => [
             'driver' => 'eloquent',
             'model' => App\Models\Company::class,
         ],
