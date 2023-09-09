@@ -50,7 +50,7 @@
             </form>
 
             <!-- 企業用ログイン画面のボタン -->
-            <form action="{{ route('company.login') }}" method="get" class="mb-3">
+            <form action="{{ route('admin.login') }}" method="get" class="mb-3">
                 <button class="btn btn-primary btn-lg login-button" type="submit">企業用ログイン画面</button>
             </form>
         </div>
