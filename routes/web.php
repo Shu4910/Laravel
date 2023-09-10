@@ -3,11 +3,28 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PostController;
 
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminRegisterController;
 
 use Illuminate\Support\Facades\Route;
+
+
+Route::get('/post', [PostController::class, 'post']);
+Route::post('/insert', [PostController::class, 'create']);
+
+//入力ページ
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+
+//確認ページ
+Route::post('/contact/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
+
+//送信完了ページ
+Route::post('/contact/thanks', [ContactController::class, 'send'])->name('contact.send');
+
+
 
 
 Route::get('user/login', function () {
