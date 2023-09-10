@@ -2,11 +2,17 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminRegisterController;
 
 use Illuminate\Support\Facades\Route;
+
+
+Route::get('user/login', function () {
+    return view('user/login');
+})->name('user.login');  // URL と名前を修正
 
 
 /*
@@ -20,12 +26,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/user/{id}', [UserController::class, 'show']);
+Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
+Route::get('/user/{id}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
+Route::get('/user/{id}', [App\Http\Controllers\UserController::class, 'show'])->name('user.show');
+Route::put('/user/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
+
+
 
 Route::get('/test-form', function () {
     return view('test_form');
 });
 
 Route::post('/test-store', [TestController::class, 'store'])->name('test.store');
+
 
 
 
@@ -63,9 +77,6 @@ Route::get('explain', function () {
     return view('explain');
 })->name('explain');  // この行を追加
 
-Route::get('user/login', function () {
-    return view('user/login');
-})->name('user.login');  // URL と名前を修正
 
 Route::get('admin/login', function () {
     return view('admin/login');
