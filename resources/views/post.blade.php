@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Your Title</title>
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     
 </head>
 <body class="bg-blue-100 font-sans">

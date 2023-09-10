@@ -5,6 +5,8 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PupuController;
+
 
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminRegisterController;
@@ -12,11 +14,16 @@ use App\Http\Controllers\Admin\AdminRegisterController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/post', [PostController::class, 'post']);
-Route::post('/insert', [PostController::class, 'create']);
+Route::get('post', [PostController::class, 'post']);
+Route::post('insert', [PostController::class, 'create']);
+
+Route::get('pupost', [PupuController::class, 'post']);
+Route::post('puinsert', [PupuController::class, 'create']);
+
+
 
 //入力ページ
-Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
 
 //確認ページ
 Route::post('/contact/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
