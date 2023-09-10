@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TestController;
+
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminRegisterController;
 
@@ -17,6 +19,15 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+Route::get('/test-form', function () {
+    return view('test_form');
+});
+
+Route::post('/test-store', [TestController::class, 'store'])->name('test.store');
+
+
 
 /*
 |--------------------------------------------------------------------------
